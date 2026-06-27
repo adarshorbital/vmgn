@@ -1,479 +1,421 @@
 <!DOCTYPE html>
-<!--
-  VMGN Fashions Private Limited - Corporate Website
-  Technology Stack: Pure HTML5 + CSS3 + Vanilla JavaScript
-  
-  HTML5 SEMANTIC ELEMENTS USED:
-  - <header>: Contains the navigation bar
-  - <nav>: Wraps navigation links for better accessibility
-  - <section>: Defines distinct content sections (hero, about, scale, etc.)
-  - <article>: Used for self-contained content blocks
-  - <footer>: Bottom section with social links and copyright
-  - These semantic elements improve SEO, accessibility, and code readability
-  
-  IMAGE RESOURCES USED (Must be committed to GitHub):
-  - assets/images/VMGNxGN.png (Logo in navbar and footer)
-  - assets/images/DSC_7910_lowres.JPG (Hero background - main fashion image)
-  - assets/images/DSC_8244_lowres.JPG (About section background)
--->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="VMGN Fashions Private Limited - 50+ years of wholesale ethnic fashion excellence from Varanasi, India. Serving large retail chains with authentic Banarasi craftsmanship.">
-  <meta name="keywords" content="wholesale ethnic fashion, Banarasi sarees, Indian handloom, VMGN Fashions, Varanasi textiles">
-  
+  <meta name="description" content="VMGN Fashions Private Limited — Six decades of wholesale ethnic fashion excellence from Varanasi, India. Banarasi craftsmanship at scale for India's largest retail chains.">
+  <meta name="keywords" content="wholesale ethnic fashion, Banarasi sarees, Indian handloom, VMGN Fashions, Varanasi textiles, GN Group">
   <title>VMGN Fashions Private Limited | The GN Group | Since 1966</title>
-  
-  <!-- 
-    GOOGLE FONTS CDN: 
-    We're using Playfair Display (elegant serif) for headings and Lato (clean sans-serif) for body text.
-    This is a CDN (Content Delivery Network) link that loads fonts from Google's servers.
-    Benefits: No download needed, fast loading, professional typography
-  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-  
-  <!-- Link to external CSS file -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
-  <link rel="icon" type="image/x-icon" href="assets/faviconvmgn.ico" />
-  <link rel="apple-touch-icon" href="assets/faviconvmgn.ico" />
+  <link rel="icon" type="image/x-icon" href="assets/faviconvmgn.ico">
+  <link rel="apple-touch-icon" href="assets/faviconvmgn.ico">
 </head>
 <body>
-  
-  <!--ta
-    STICKY NAVIGATION BAR
-    The navbar stays fixed at the top while scrolling (position: sticky in CSS)
-    Contains logo and navigation links that smooth-scroll to sections
-  -->
-  <header>
+
+  <header id="site-header">
     <nav class="navbar" id="navbar">
       <div class="nav-container">
-        <!-- Logo: VMGNxGN.png -->
         <a href="#home" class="logo">
-          <img src="assets/images/VMGNxGN.png" alt="VMGN Fashions Private Limited Logo">
+          <img src="assets/images/VMGN_hero.png" alt="VMGN Fashions Private Limited">
         </a>
-        
-        <!-- 
-          HAMBURGER MENU ICON for mobile
-          This is hidden on desktop and shown on mobile devices
-          JavaScript toggles the 'active' class to show/hide mobile menu
-        -->
-        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
-          <span></span>
-          <span></span>
-          <span></span>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
         </button>
-        
-        <!-- Navigation links -->
         <ul class="nav-links" id="navLinks">
           <li><a href="#home" class="nav-link">Home</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#scale" class="nav-link">Our Scale</a></li>
-          <li><a href="#locations" class="nav-link">Locations</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="#about" class="nav-link">Legacy</a></li>
+          <li><a href="#scale" class="nav-link">Capabilities</a></li>
+          <li><a href="#locations" class="nav-link">Visit Us</a></li>
+          <li><a href="#contact" class="nav-link">Connect</a></li>
         </ul>
       </div>
     </nav>
   </header>
 
-  <!-- 
-    HERO SECTION
-    Full-screen luxury hero with background image (DSC_7910_lowres.JPG)
-    Includes tagline and call-to-action button linking to golghar.org
-  -->
   <section id="home" class="hero">
-    <div class="hero-overlay"></div>
+    <div class="hero-bg"></div>
     <div class="hero-content">
-      <h1 class="hero-title">
-        <span class="hero-subtitle">The GN Group</span>
-        50 Years of Ethnic Heritage
-      </h1>
-      <p class="hero-description">
-        Wholesale ethnic fashion excellence from the heart of Varanasi since 1966. 
-        Crafting tradition, delivering at scale.
-      </p>
-      <!-- 
-        CTA Button with UTM parameters for tracking
-        UTM parameters help track where website traffic comes from
-      -->
-      <a href="https://golghar.org?utm_source=vmgnwebsite&utm_content=linkclick" 
-         class="cta-button" 
-         target="_blank" 
+      <p class="hero-eyebrow">The GN Group &nbsp;&middot;&nbsp; Est. 1966 &nbsp;&middot;&nbsp; Varanasi, India</p>
+      <h1 class="hero-title">Woven in<br><em>Varanasi</em></h1>
+      <p class="hero-desc">Wholesale ethnic fashion excellence — from the spiritual capital of India to the nation's largest retail chains.</p>
+      <a href="https://golghar.org?utm_source=vmgnwebsite&utm_content=linkclick"
+         class="cta-btn"
+         target="_blank"
          rel="noopener noreferrer">
-        Visit Golghar.org
+        <span>Visit Golghar.org</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </a>
+    </div>
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
     </div>
   </section>
 
-  <!-- 
-    ABOUT SECTION
-    Background image: DSC_8244_lowres.JPG
-    Tells the story of VMGN's 50+ year heritage
-  -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Since 1966</span><span class="mdot">&loz;</span>
+      <span>Varanasi, India</span><span class="mdot">&loz;</span>
+      <span>Indian Handloom Brand Certified</span><span class="mdot">&loz;</span>
+      <span>LIVA Partner &mdash; Aditya Birla Group</span><span class="mdot">&loz;</span>
+      <span>Recognised by Prime Minister of India</span><span class="mdot">&loz;</span>
+      <span>Third Generation Legacy</span><span class="mdot">&loz;</span>
+      <span>Wholesale Excellence at Scale</span><span class="mdot">&loz;</span>
+      <span>Since 1966</span><span class="mdot">&loz;</span>
+      <span>Varanasi, India</span><span class="mdot">&loz;</span>
+      <span>Indian Handloom Brand Certified</span><span class="mdot">&loz;</span>
+      <span>LIVA Partner &mdash; Aditya Birla Group</span><span class="mdot">&loz;</span>
+      <span>Recognised by Prime Minister of India</span><span class="mdot">&loz;</span>
+      <span>Third Generation Legacy</span><span class="mdot">&loz;</span>
+      <span>Wholesale Excellence at Scale</span><span class="mdot">&loz;</span>
+    </div>
+  </div>
+
   <section id="about" class="about">
-    <div class="section-container">
-      <div class="about-content">
-        <h2 class="section-title">Our Legacy</h2>
-        <div class="title-underline"></div>
-        
-        <div class="about-text">
-          <p class="lead-text">
-            Since 1966, VMGN Fashions Private Limited has been the cornerstone of wholesale ethnic fashion in India, 
-            rooted in the ancient city of Varanasi — the spiritual capital renowned for its exquisite Banarasi textiles.
-          </p>
-          
-          <p>
-            Now in its third generation, The GN Group represents a harmonious fusion of ancestral craftsmanship and 
-            contemporary manufacturing excellence. From the historic lanes of Golghar, we have evolved into a powerhouse 
-            serving the nation's largest retail chains.
-          </p>
-          
-          <p>
-            Our e-commerce venture, <a href="https://golghar.org?utm_source=vmgnwebsite&utm_content=linkclick" 
-            target="_blank" rel="noopener noreferrer" class="inline-link">golghar.org</a>, bridges the timeless 
-            elegance of ethnic fashion with modern accessibility, bringing Banarasi heritage to discerning customers worldwide.
-          </p>
-          
-          <p>
-            Every piece that leaves our facility carries the soul of Varanasi — the intricate handloom artistry, 
-            the richness of heritage textiles, and the promise of uncompromising quality that has defined us for over half a century.
-          </p>
+    <div class="about-inner">
+      <div class="about-text-col">
+        <p class="section-label">Our Legacy</p>
+        <h2 class="section-heading">A Heritage Rooted<br>in the Sacred City</h2>
+        <div class="gold-rule"></div>
+        <p class="lead-para">
+          Since 1966, VMGN Fashions Private Limited has been the cornerstone of wholesale ethnic fashion in India, rooted in the ancient city of Varanasi &mdash; the spiritual capital renowned for its exquisite Banarasi textiles.
+        </p>
+        <p>
+          Today, proudly in its third generation, The GN Group carries this heritage forward with renewed vigour &mdash; blending the soul of Banarasi craftsmanship with modern manufacturing excellence. From the historic lanes of Golghar, we have grown into a trusted wholesale powerhouse for the nation's largest retail chains.
+        </p>
+        <p>
+          <strong class="open-tag">&#x2713;&nbsp; Currently open for wholesale enquiries.</strong> Whether you are a large-format retailer, a regional chain, or a fashion brand seeking authentic ethnic fashion at scale &mdash; we are ready to work with you.
+        </p>
+        <p>
+          Our e-commerce venture, <a href="https://golghar.org?utm_source=vmgnwebsite&utm_content=linkclick" target="_blank" rel="noopener noreferrer" class="text-link">golghar.org</a>, brings this same Banarasi heritage directly to discerning customers worldwide.
+        </p>
+      </div>
+      <div class="about-image-col">
+        <div class="about-img-outer">
+          <div class="about-img-frame">
+            <img src="assets/images/DSC_8244_lowres.JPG" alt="VMGN Fashions craftsmanship in Varanasi">
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 
-    OUR SCALE SECTION
-    Highlights wholesale capabilities, manufacturing scale, and partnerships
-    Target audience: Large buyers like Reliance, Walmart
-  -->
+  <section class="numbers">
+    <div class="numbers-inner">
+      <div class="stat-item">
+        <div class="stat-num-wrap">
+          <span class="stat-number" data-target="60">0</span>
+          <span class="stat-suffix">+</span>
+        </div>
+        <p class="stat-label">Years of Excellence</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num-wrap">
+          <span class="stat-number" data-target="3">0</span>
+          <span class="stat-suffix">rd</span>
+        </div>
+        <p class="stat-label">Generation Legacy</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num-wrap">
+          <span class="stat-number" data-target="1000">0</span>
+          <span class="stat-suffix">s</span>
+        </div>
+        <p class="stat-label">Artisans Employed</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num-wrap">
+          <span class="stat-number" data-target="2">0</span>
+          <span class="stat-suffix"></span>
+        </div>
+        <p class="stat-label">Retail Locations</p>
+      </div>
+    </div>
+  </section>
+
   <section id="scale" class="scale">
     <div class="section-container">
-      <h2 class="section-title">Our Scale & Capabilities</h2>
-      <div class="title-underline"></div>
-      
+      <p class="section-label">Our Capabilities</p>
+      <h2 class="section-heading centered">Built for Scale</h2>
+      <div class="gold-rule centered-rule"></div>
       <p class="section-intro">
-        VMGN Fashions Private Limited operates at a scale designed to serve India's largest retail enterprises. 
-        Our infrastructure, partnerships, and manufacturing capabilities position us as a preferred wholesale partner 
-        for bulk ethnic fashion requirements.
+        VMGN Fashions operates at a scale designed to serve India's largest retail enterprises &mdash; infrastructure, partnerships, and manufacturing capabilities that position us as the preferred wholesale partner.
       </p>
-      
-      <!-- 
-        CSS GRID LAYOUT:
-        The scale-grid uses CSS Grid to create a responsive card layout
-        On mobile: 1 column, On tablet: 2 columns, On desktop: 3 columns
-      -->
-      <div class="scale-grid">
-        
-        <article class="scale-card">
-          <div class="scale-icon">🏭</div>
+      <div class="capabilities-grid">
+
+        <article class="cap-card" data-delay="0">
+          <div class="cap-num">01</div>
           <h3>State-of-the-Art Manufacturing</h3>
-          <p>
-            Our Value Addition Center (VAC) at Rajatab, Varanasi is the first garment manufacturing unit of its kind 
-            in Eastern Uttar Pradesh, built in collaboration with the Government of India.
-          </p>
+          <p>Our Value Addition Center (VAC) at Rajatab, Varanasi is the first garment manufacturing unit of its kind in Eastern Uttar Pradesh, built in collaboration with the Government of India.</p>
         </article>
-        
-        <article class="scale-card">
-          <div class="scale-icon">👥</div>
+
+        <article class="cap-card" data-delay="0.10">
+          <div class="cap-num">02</div>
           <h3>Empowering Thousands</h3>
-          <p>
-            We employ thousands of skilled artisans, stitchers, and job workers from rural villages, preserving 
-            traditional craftsmanship while providing sustainable livelihoods.
-          </p>
+          <p>We employ thousands of skilled artisans, stitchers, and job workers from rural villages, preserving traditional craftsmanship while providing sustainable livelihoods.</p>
         </article>
-        
-        <article class="scale-card">
-          <div class="scale-icon">🏅</div>
+
+        <article class="cap-card" data-delay="0.20">
+          <div class="cap-num">03</div>
           <h3>Indian Handloom Brand</h3>
-          <p>
-            Registered with the prestigious Indian Handloom Brand, certifying our commitment to authentic, 
-            handcrafted textiles that represent India's rich weaving heritage.
-          </p>
+          <p>Registered with the prestigious Indian Handloom Brand, certifying our commitment to authentic, handcrafted textiles representing India's rich weaving heritage.</p>
         </article>
-        
-        <article class="scale-card">
-          <div class="scale-icon">🤝</div>
+
+        <article class="cap-card" data-delay="0.08">
+          <div class="cap-num">04</div>
           <h3>LIVA Partnership</h3>
-          <p>
-            Proud partners with Aditya Birla Group for LIVA fabric sarees, combining premium materials with 
-            our craftsmanship expertise for superior product offerings.
-          </p>
+          <p>Proud partners with Aditya Birla Group for LIVA fabric sarees, combining premium materials with our craftsmanship expertise for superior product offerings.</p>
         </article>
-        
-        <article class="scale-card">
-          <div class="scale-icon">🏛️</div>
-          <h3>Government Collaboration</h3>
-          <p>
-            Our manufacturing excellence earned recognition from Prime Minister Narendra Modi, who met our Director 
-            Shri Mukund Ballabh Agrawal in February 2020 to appreciate our contribution to the textile sector.
-          </p>
+
+        <article class="cap-card" data-delay="0.18">
+          <div class="cap-num">05</div>
+          <h3>Government Recognition</h3>
+          <p>Our manufacturing excellence earned recognition from Prime Minister Narendra Modi, who met our Director Shri Mukund Ballabh Agrawal in February 2020.</p>
         </article>
-        
-        <article class="scale-card">
-          <div class="scale-icon">📦</div>
+
+        <article class="cap-card" data-delay="0.28">
+          <div class="cap-num">06</div>
           <h3>Bulk Order Specialists</h3>
-          <p>
-            Equipped to handle large-volume orders for national retail chains. Our streamlined production and 
-            logistics ensure timely delivery at scale without compromising quality.
-          </p>
+          <p>Equipped to handle large-volume orders for national retail chains. Streamlined production and logistics ensure timely delivery at scale without compromising quality.</p>
         </article>
-        
+
       </div>
     </div>
   </section>
 
-  <!-- 
-    RETAIL LOCATIONS SECTION
-    Showcases the two golghar retail locations with Google Maps links
-  -->
   <section id="retail" class="retail">
     <div class="section-container">
-      <h2 class="section-title">Our Retail Fronts</h2>
-      <div class="title-underline"></div>
-      
+      <p class="section-label">Find Us</p>
+      <h2 class="section-heading centered">Our Retail Fronts</h2>
+      <div class="gold-rule centered-rule"></div>
       <p class="section-intro">
-        Experience our collections in person at our golghar retail stores in Varanasi.
+        Experience our collections in person at our Golghar retail stores in Varanasi.
       </p>
-      
       <div class="retail-grid">
-        
+
         <article class="retail-card">
-          <div class="retail-icon">📍</div>
+          <p class="retail-loc-tag">Location 01</p>
           <h3>Golghar, Mehmoorganj</h3>
-          <p>Second Floor, VMGN Building</p>
-          <p>Mehmoorganj, Varanasi</p>
-          <a href="https://maps.app.goo.gl/tujCmzeGW6bzKoDe7" 
-             target="_blank" 
-             rel="noopener noreferrer" 
-             class="location-button">
-            View on Google Maps
+          <address>
+            Second Floor, VMGN Building<br>
+            Mehmoorganj, Varanasi
+          </address>
+          <a href="https://maps.app.goo.gl/tujCmzeGW6bzKoDe7"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="map-link">
+            <span>View on Google Maps</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
           </a>
         </article>
-        
+
         <article class="retail-card">
-          <div class="retail-icon">📍</div>
+          <p class="retail-loc-tag">Location 02</p>
           <h3>Golghar, Maidagin</h3>
-          <p>Standalone Store</p>
-          <p>Maidagin, Varanasi</p>
-          <a href="https://maps.app.goo.gl/4TYiihnaS3zLoseEA" 
-             target="_blank" 
-             rel="noopener noreferrer" 
-             class="location-button">
-            View on Google Maps
+          <address>
+            Standalone Store<br>
+            Maidagin, Varanasi
+          </address>
+          <a href="https://maps.app.goo.gl/4TYiihnaS3zLoseEA"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="map-link">
+            <span>View on Google Maps</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
           </a>
         </article>
-        
+
       </div>
     </div>
   </section>
 
-  <!-- 
-    LOCATIONS & CONTACT SECTION
-    Shows VMGN HQ address, contact details, and embedded Google Map
-    
-    GOOGLE MAPS IFRAME EMBED:
-    We embed a map using an <iframe> element (no API key needed)
-    The src URL is a Google Maps embed link for VMGN HQ location
-    This displays an interactive map directly on the page
-  -->
-  <section id="locations" class="locations">
+  <section id="locations" class="hq-section">
     <div class="section-container">
-      <h2 class="section-title">Visit Our Headquarters</h2>
-      <div class="title-underline"></div>
-      
-      <div class="location-content">
-        
-        <div class="location-info">
+      <p class="section-label">Headquarters</p>
+      <h2 class="section-heading centered">Visit Our HQ</h2>
+      <div class="gold-rule centered-rule"></div>
+      <div class="hq-inner">
+        <div class="hq-info">
           <h3>VMGN Fashions Private Limited</h3>
-          <p class="address">
+          <address>
             No. 31, VMGN Lattice, Gopal Vihar Colony,<br>
             Rathyatra Mehmoorganj Road,<br>
             Varanasi, 221 010<br>
             Uttar Pradesh, INDIA
-          </p>
-          
-          <div class="contact-details">
-            <p>
-              <strong>Phone:</strong><br>
-              <a href="tel:+919839056131">+91-9839056131</a><br>
-              <a href="tel:+919839089998">+91-9839089998</a>
-            </p>
-            
-            <p>
-              <strong>Email:</strong><br>
-              <a href="mailto:namaste@vmgnfashions.com">namaste@vmgnfashions.com</a><br>
-              <a href="mailto:hello@golghar.org">hello@golghar.org</a>
-            </p>
+          </address>
+          <div class="hq-contact">
+            <div class="contact-row">
+              <span class="contact-type">Phone</span>
+              <div class="contact-vals">
+                <a href="tel:+919839056131">+91-9839056131</a>
+                <a href="tel:+919839089998">+91-9839089998</a>
+              </div>
+            </div>
+            <div class="contact-row">
+              <span class="contact-type">Email</span>
+              <div class="contact-vals">
+                <a href="mailto:namaste@vmgnfashions.com">namaste@vmgnfashions.com</a>
+                <a href="mailto:hello@golghar.org">hello@golghar.org</a>
+              </div>
+            </div>
           </div>
-          
-          <a href="https://maps.app.goo.gl/AHnynNtiKH8j7aSCA" 
-             target="_blank" 
-             rel="noopener noreferrer" 
-             class="location-button">
-            Open in Google Maps
+          <a href="https://maps.app.goo.gl/AHnynNtiKH8j7aSCA"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="map-link hq-map-link">
+            <span>Open in Google Maps</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
           </a>
         </div>
-        
-        <!-- 
-          IFRAME ELEMENT for embedding Google Maps
-          The iframe loads Google Maps inside the webpage
-          Attributes: width, height, style, loading="lazy" (improves page load speed)
-        -->
-        <div class="map-container">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.5574861791944!2d83.01237887536744!3d25.316514677653827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e2e1932705d63%3A0xa92896dcb635477f!2sVMGN%20Fashions%20Private%20Limited!5e0!3m2!1sen!2sin!4v1708914000000!5m2!1sen!2sin" 
-            width="100%" 
-            height="450" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
+        <div class="hq-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.8921234!2d82.9805747!3d25.3048374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e2e18828b28f7%3A0xd21b3cf30aa4bfb!2sVMGN%20Fashions%20(P)%20Ltd.%20(formerly%20GN%20Bros.%20Sarees%20Pvt.%20Ltd.)!5e0!3m2!1sen!2sin!4v1708914000000!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="VMGN Fashions HQ Location on Google Maps">
+            title="VMGN Fashions HQ Location">
           </iframe>
         </div>
-        
       </div>
     </div>
   </section>
 
-  <!-- 
-    CONTACT FORM SECTION
-    
-    FORMSPREE INTEGRATION:
-    Formspree is a free service that handles form submissions without backend code.
-    How it works:
-    1. User fills out the form and clicks submit
-    2. Form data is sent to Formspree's servers
-    3. Formspree forwards the data as an email to specified addresses
-    
-    SETUP INSTRUCTIONS:
-    1. Go to https://formspree.io/
-    2. Sign up for a free account
-    3. Create a new form project
-    4. You'll get a unique form endpoint URL like: https://formspree.io/f/YOUR_FORM_ID
-    5. Replace 'YOUR_FORM_ID' in the action attribute below with your actual Form ID
-    6. Configure email recipients in Formspree dashboard to: admin@golghar.org and namaste@vmgnfashions.com
-    
-    The free tier allows 50 submissions per month, which is typically sufficient for corporate sites.
-  -->
   <section id="contact" class="contact">
     <div class="section-container">
-      <h2 class="section-title">Get In Touch</h2>
-      <div class="title-underline"></div>
-      
-      <p class="section-intro">
-        Interested in wholesale partnerships or bulk orders? Reach out to us.
-      </p>
-      
-      <!-- 
-        FORMSPREE FORM
-        ACTION: Replace 'YOUR_FORM_ID' with your actual Formspree form ID
-        METHOD: POST sends form data to Formspree
-      -->
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
-        
+      <p class="section-label">Get In Touch</p>
+      <h2 class="section-heading centered">Wholesale Enquiries</h2>
+      <div class="gold-rule centered-rule"></div>
+      <p class="section-intro">We are actively open to new wholesale partnerships and bulk order enquiries. Fill in the form below and we will get back to you within 24 business hours &mdash; or reach us directly on WhatsApp for a faster response.</p>
+      <a href="https://wa.me/919839056131?text=Hello%2C%20I%20am%20interested%20in%20a%20wholesale%20enquiry%20with%20VMGN%20Fashions."
+         class="whatsapp-inline-btn"
+         target="_blank"
+         rel="noopener noreferrer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span>Chat on WhatsApp</span>
+      </a>
+      <div class="form-divider"><span>or send us a message</span></div>
+
+      <form class="contact-form" id="contactForm" novalidate>
         <div class="form-row">
           <div class="form-group">
-            <label for="name">Full Name *</label>
-            <input type="text" id="name" name="name" required>
+            <label for="name">Full Name <span aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" required placeholder="Your name">
           </div>
-          
           <div class="form-group">
-            <label for="company">Company Name *</label>
-            <input type="text" id="company" name="company" required>
+            <label for="company">Company Name <span aria-hidden="true">*</span></label>
+            <input type="text" id="company" name="company" required placeholder="Your company">
           </div>
         </div>
-        
         <div class="form-row">
           <div class="form-group">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" name="email" required>
+            <label for="email">Email Address <span aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="your@email.com">
           </div>
-          
           <div class="form-group">
-            <label for="phone">Phone Number *</label>
-            <input type="tel" id="phone" name="phone" required>
+            <label for="phone">Phone Number <span aria-hidden="true">*</span></label>
+            <input type="tel" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX">
           </div>
         </div>
-        
         <div class="form-group">
-          <label for="inquiry">Nature of Inquiry *</label>
+          <label for="inquiry">Nature of Inquiry <span aria-hidden="true">*</span></label>
           <select id="inquiry" name="inquiry" required>
-            <option value="">-- Select --</option>
+            <option value="">Select inquiry type</option>
             <option value="Wholesale Inquiry">Wholesale Inquiry</option>
             <option value="Bulk Order">Bulk Order</option>
             <option value="Partnership">Partnership</option>
             <option value="Other">Other</option>
           </select>
         </div>
-        
         <div class="form-group">
-          <label for="message">Message *</label>
-          <textarea id="message" name="message" rows="6" required></textarea>
+          <label for="message">Message <span aria-hidden="true">*</span></label>
+          <textarea id="message" name="message" rows="6" required placeholder="Tell us about your requirements..."></textarea>
         </div>
-        
-        <button type="submit" class="submit-button">Send Inquiry</button>
-        
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span>Send Enquiry</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </button>
       </form>
+
+      <div class="form-success" id="formSuccess">
+        <div class="success-check">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Enquiry Received</h3>
+        <p>Thank you for reaching out. Our team will respond within 24 business hours.<br>For a faster reply, follow up on WhatsApp.</p>
+        <a href="https://wa.me/919839056131?text=Hi%2C%20I%20just%20submitted%20an%20enquiry%20on%20your%20website%20and%20wanted%20to%20follow%20up."
+           class="whatsapp-inline-btn"
+           target="_blank"
+           rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span>Follow up on WhatsApp</span>
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- 
-    FOOTER SECTION
-    Contains logo, tagline, social media links, and copyright
-  -->
   <footer class="footer">
-    <div class="footer-container">
-      
-      <div class="footer-brand">
-        <img src="assets/images/VMGNxGN.png" alt="VMGN Logo" class="footer-logo">
-        <p class="footer-tagline">Crafting Tradition Since 1966</p>
-      </div>
-      
-      <div class="footer-social">
-        <h4>Follow @lanesofgolghar</h4>
-        <div class="social-links">
-          <a href="https://www.facebook.com/lanesofgolghar" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-            </svg>
-          </a>
-          
-          <a href="https://www.instagram.com/lanesofgolghar" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-          </a>
-          
-          <a href="https://www.pinterest.com/lanesofgolghar" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/>
-            </svg>
-          </a>
-          
-          <a href="https://www.youtube.com/@lanesofgolghar" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-            </svg>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/images/VMGNxGN.png" alt="VMGN Fashions" class="footer-logo">
+          <p class="footer-tagline">Crafting Tradition Since 1966</p>
+          <a href="https://golghar.org?utm_source=vmgnwebsite&utm_content=footerlink"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="footer-golghar-link">
+            <span>Visit Golghar.org</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
           </a>
         </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#home">Home</a>
+          <a href="#about">Legacy</a>
+          <a href="#scale">Capabilities</a>
+          <a href="#locations">Visit Us</a>
+          <a href="#contact">Connect</a>
+        </nav>
+        <div class="footer-social">
+          <p class="social-label">@lanesofgolghar</p>
+          <div class="social-row">
+            <a href="https://www.facebook.com/lanesofgolghar" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/lanesofgolghar" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.pinterest.com/lanesofgolghar" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.372-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@lanesofgolghar" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+          </div>
+        </div>
       </div>
-      
-    </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; 2026 VMGN Fashions Private Limited. All Rights Reserved.</p>
+      <div class="footer-bottom">
+        <p>&copy; 2026 VMGN Fashions Private Limited. All Rights Reserved.</p>
+        <p class="footer-sub">The GN Group &nbsp;&middot;&nbsp; Varanasi, India</p>
+      </div>
     </div>
   </footer>
 
-  <!-- Link to external JavaScript file -->
+  <a href="https://wa.me/919839056131?text=Hello%2C%20I%20am%20interested%20in%20a%20wholesale%20enquiry%20with%20VMGN%20Fashions."
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener noreferrer"
+     aria-label="Chat with VMGN Fashions on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,237 +1,180 @@
-/*
-  VMGN Fashions Private Limited - JavaScript
-  
-  VANILLA JAVASCRIPT:
-  "Vanilla" means pure JavaScript without any libraries or frameworks like jQuery.
-  All functionality is written using native browser JavaScript APIs.
-  
-  TECHNOLOGIES & CONCEPTS USED:
-  
-  1. DOM MANIPULATION:
-     - Document Object Model (DOM) is the browser's representation of HTML as a tree structure
-     - getElementById() and querySelector() find elements in the DOM
-     - classList.toggle() adds/removes CSS classes to change appearance
-     - addEventListener() listens for user interactions (clicks, scrolls, etc.)
-  
-  2. EVENT LISTENERS:
-     - Functions that wait for specific events to happen (click, scroll, load, etc.)
-     - When event occurs, a callback function executes
-  
-  3. MOBILE MENU TOGGLE:
-     - Hamburger icon toggles mobile navigation menu visibility
-     - Adds/removes 'active' class which triggers CSS transitions
-  
-  4. SMOOTH SCROLL:
-     - When clicking nav links, page smoothly scrolls to target section
-     - Uses scrollIntoView() browser API
-  
-  5. NAVBAR SCROLL EFFECT:
-     - Changes navbar appearance when user scrolls down
-     - Adds shadow for better visibility
-*/
+document.addEventListener('DOMContentLoaded', function () {
 
-// ========================================
-// MOBILE MENU TOGGLE
-// ========================================
+  // ── NAVBAR: transparent → solid on scroll ──
+  var navbar    = document.getElementById('navbar');
+  var hamburger = document.getElementById('hamburger');
+  var navLinks  = document.getElementById('navLinks');
 
-/*
-  Wait for the DOM to fully load before running JavaScript
-  This ensures all HTML elements exist before we try to access them
-*/
-document.addEventListener('DOMContentLoaded', function() {
-  
-  /*
-    GET DOM ELEMENTS:
-    getElementById() finds HTML elements by their id attribute
-    We store them in variables so we can use them later
-  */
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  const navbar = document.getElementById('navbar');
-  
-  /*
-    HAMBURGER CLICK EVENT:
-    When hamburger icon is clicked, toggle the 'active' class
-    This shows/hides the mobile menu (CSS handles the animation)
-  */
-  hamburger.addEventListener('click', function() {
-    // Toggle 'active' class on hamburger (animates the icon)
+  window.addEventListener('scroll', function () {
+    navbar.classList.toggle('scrolled', window.scrollY > 80);
+  }, { passive: true });
+
+  // ── HAMBURGER ──
+  hamburger.addEventListener('click', function () {
     hamburger.classList.toggle('active');
-    
-    // Toggle 'active' class on nav links (slides menu in/out)
     navLinks.classList.toggle('active');
   });
-  
-  /*
-    CLOSE MOBILE MENU WHEN CLICKING A LINK:
-    querySelectorAll() finds all elements matching a CSS selector
-    We loop through each nav link and add a click listener
-    When a link is clicked, we close the mobile menu
-  */
-  const navLinkElements = document.querySelectorAll('.nav-link');
-  navLinkElements.forEach(function(link) {
-    link.addEventListener('click', function() {
-      // Remove 'active' class to close the menu
+
+  document.querySelectorAll('.nav-link').forEach(function (link) {
+    link.addEventListener('click', function (e) {
       hamburger.classList.remove('active');
       navLinks.classList.remove('active');
-    });
-  });
-  
-  // ========================================
-  // NAVBAR SCROLL EFFECT
-  // ========================================
-  
-  /*
-    SCROLL EVENT LISTENER:
-    Listens for page scroll and adds shadow to navbar
-    window.scrollY returns how far user has scrolled from top
-  */
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 100) {
-      // User has scrolled more than 100px - add shadow
-      navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
-    } else {
-      // User is near top - use default shadow
-      navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-    }
-  });
-  
-  // ========================================
-  // SMOOTH SCROLL FOR NAVIGATION LINKS
-  // ========================================
-  
-  /*
-    SMOOTH SCROLL POLYFILL:
-    Although we use CSS scroll-behavior: smooth in the stylesheet,
-    this JavaScript provides additional smooth scrolling with more control
-    
-    How it works:
-    1. Prevent default link behavior (jumping to section)
-    2. Get the target section's position
-    3. Smoothly scroll to that position
-  */
-  navLinkElements.forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      // Get the href attribute (e.g., "#about")
-      const targetId = this.getAttribute('href');
-      
-      // Check if it's an internal link (starts with #)
-      if (targetId.startsWith('#')) {
-        e.preventDefault(); // Stop default jump behavior
-        
-        // Find the target section
-        const targetSection = document.querySelector(targetId);
-        
-        if (targetSection) {
-          /*
-            scrollIntoView() is a browser API that scrolls element into view
-            behavior: 'smooth' makes it animate instead of jumping
-            block: 'start' aligns section to top of viewport
-          */
-          targetSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
+      var targetId = this.getAttribute('href');
+      if (targetId && targetId.startsWith('#')) {
+        e.preventDefault();
+        var target = document.querySelector(targetId);
+        if (target) {
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
         }
       }
     });
   });
-  
-  // ========================================
-  // FORM VALIDATION (Optional Enhancement)
-  // ========================================
-  
-  /*
-    FORM SUBMIT EVENT:
-    Basic client-side validation before submitting to Formspree
-    This runs before the form is sent to the server
-  */
-  const contactForm = document.querySelector('.contact-form');
-  
-  if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-      // Get form field values
-      const name = document.getElementById('name').value.trim();
-      const company = document.getElementById('company').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const inquiry = document.getElementById('inquiry').value;
-      const message = document.getElementById('message').value.trim();
-      
-      // Check if any required field is empty
-      if (!name || !company || !email || !phone || !inquiry || !message) {
-        e.preventDefault(); // Stop form submission
+
+  // ── SCROLL REVEAL ──
+  var revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var delay = entry.target.dataset.delay || '0';
+        entry.target.style.transitionDelay = parseFloat(delay) + 's';
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.10, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.cap-card, .retail-card, .about-text-col, .about-image-col, .hq-info, .hq-map, .contact-form').forEach(function (el) {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+  });
+
+  // ── STATS COUNTER ──
+  function countUp(el, target, duration) {
+    var start = performance.now();
+    function tick(now) {
+      var progress = Math.min((now - start) / duration, 1);
+      var eased    = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target);
+      if (progress < 1) requestAnimationFrame(tick);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  var numbersSection = document.querySelector('.numbers');
+  if (numbersSection) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.stat-number').forEach(function (num) {
+            countUp(num, parseInt(num.getAttribute('data-target'), 10), 1800);
+          });
+          this.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.30 }).observe(numbersSection);
+  }
+
+  // ─────────────────────────────────────────────────────────────────
+  //  GOOGLE FORM INTEGRATION
+  //
+  //  HOW TO SET UP (one-time, ~10 minutes):
+  //
+  //  1. Go to forms.google.com → create a new blank form
+  //
+  //  2. Add these six fields in order (field type in brackets):
+  //       Full Name          [Short answer]
+  //       Company Name       [Short answer]
+  //       Email Address      [Short answer]
+  //       Phone Number       [Short answer]
+  //       Nature of Inquiry  [Dropdown] — add: Wholesale Inquiry / Bulk Order / Partnership / Other
+  //       Message            [Paragraph]
+  //
+  //  3. Get email notifications:
+  //       Responses tab → ⋮ (three dots) → "Get email notifications for new responses"
+  //       Add: namaste@vmgnfashions.com
+  //
+  //  4. Get your FORM_ACTION URL:
+  //       Click "Send" → Link icon → copy the link
+  //       It looks like: https://docs.google.com/forms/d/e/ABC123.../viewform
+  //       Replace "/viewform" with "/formResponse" → that is your FORM_ACTION below
+  //
+  //  5. Get field entry IDs:
+  //       Open the form preview link → right-click on each input → Inspect
+  //       Each field has a name like "entry.1234567890" — copy that number for each field
+  //       OR: click ⋮ → "Get pre-filled link" → fill in dummy text → Submit
+  //       The URL will show ?entry.XXXX=dummy&entry.YYYY=dummy etc.
+  //
+  //  6. Paste values below — save — done.
+  // ─────────────────────────────────────────────────────────────────
+
+  var GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSdDjApPWJ5j3Ze4M7A3Pl-vOZ_SQ_5EDnSfCCFh-82Xnuo9yA/formResponse';
+
+  var ENTRY = {
+    name:    'entry.366343801',
+    company: 'entry.1114141589',
+    email:   'entry.2034944749',
+    phone:   'entry.191492947',
+    inquiry: 'entry.2145111458',
+    message: 'entry.1617363012'
+  };
+
+  // ── FORM SUBMIT ──
+  var form       = document.getElementById('contactForm');
+  var successBox = document.getElementById('formSuccess');
+  var submitBtn  = document.getElementById('submitBtn');
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var vals = {
+        name:    document.getElementById('name').value.trim(),
+        company: document.getElementById('company').value.trim(),
+        email:   document.getElementById('email').value.trim(),
+        phone:   document.getElementById('phone').value.trim(),
+        inquiry: document.getElementById('inquiry').value,
+        message: document.getElementById('message').value.trim()
+      };
+
+      var allFilled = Object.values(vals).every(function (v) { return v !== ''; });
+      if (!allFilled) {
         alert('Please fill in all required fields.');
-        return false;
+        return;
       }
-      
-      // Basic email validation using Regular Expression (regex)
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(email)) {
-        e.preventDefault();
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(vals.email)) {
         alert('Please enter a valid email address.');
-        return false;
+        return;
       }
-      
-      /*
-        If validation passes, form submits normally to Formspree
-        Formspree will handle sending the email to specified addresses
-      */
+
+      // Loading state
+      submitBtn.disabled = true;
+      submitBtn.querySelector('span').textContent = 'Sending…';
+
+      var body = new FormData();
+      body.append(ENTRY.name,    vals.name);
+      body.append(ENTRY.company, vals.company);
+      body.append(ENTRY.email,   vals.email);
+      body.append(ENTRY.phone,   vals.phone);
+      body.append(ENTRY.inquiry, vals.inquiry);
+      body.append(ENTRY.message, vals.message);
+
+      // no-cors: Google accepts the POST; we can't read the response (CORS policy)
+      // but the data lands in the Sheet. Treat network error as the only real failure.
+      fetch(GOOGLE_FORM_ACTION, { method: 'POST', mode: 'no-cors', body: body })
+        .then(function () {
+          form.style.display = 'none';
+          if (successBox) {
+            successBox.style.display = 'flex';
+            successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        })
+        .catch(function () {
+          submitBtn.disabled = false;
+          submitBtn.querySelector('span').textContent = 'Send Enquiry';
+          alert('Network error. Please try WhatsApp or email us directly at namaste@vmgnfashions.com');
+        });
     });
   }
-  
-  // ========================================
-  // ANIMATION ON SCROLL (Optional Enhancement)
-  // ========================================
-  
-  /*
-    INTERSECTION OBSERVER API:
-    Modern browser API that detects when elements enter the viewport
-    We can use this to trigger animations when user scrolls to sections
-    
-    This is optional but adds a nice polish to the site
-  */
-  const observerOptions = {
-    threshold: 0.1, // Trigger when 10% of element is visible
-    rootMargin: '0px 0px -50px 0px' // Trigger slightly before element enters viewport
-  };
-  
-  const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        // Element is now visible - add 'visible' class
-        entry.target.classList.add('visible');
-      }
-    });
-  }, observerOptions);
-  
-  // Observe all scale cards and retail cards for scroll animations
-  const animatedElements = document.querySelectorAll('.scale-card, .retail-card');
-  animatedElements.forEach(function(el) {
-    observer.observe(el);
-  });
-  
-  /*
-    CONSOLE LOG FOR DEBUGGING:
-    Helpful message in browser console confirming JavaScript loaded
-    Open browser DevTools (F12) to see this message
-  */
-  console.log('VMGN Fashions website JavaScript loaded successfully!');
-  console.log('Technologies used: Vanilla JavaScript, DOM Manipulation, Event Listeners, Intersection Observer API');
-  
-});
 
-/*
-  END OF JAVASCRIPT FILE
-  
-  SUMMARY OF WHAT THIS FILE DOES:
-  1. Mobile hamburger menu toggle functionality
-  2. Closes mobile menu when navigation link is clicked
-  3. Adds shadow to navbar when scrolling
-  4. Smooth scrolling to sections when clicking nav links
-  5. Form validation before submission to Formspree
-  6. Scroll animations using Intersection Observer API
-  
-  All of this is done with pure JavaScript - no jQuery, no React, no frameworks.
-  This makes the site fast, lightweight, and easy to maintain.
-*/
+});
