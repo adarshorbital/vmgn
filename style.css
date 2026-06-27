@@ -52,18 +52,21 @@ address { font-style: normal; }
 
 /* ── NAVIGATION ── */
 #site-header {
-  position: fixed;
-  inset: 0 0 auto;
-  z-index: 100;
+  position: static;
 }
 
 .navbar {
-  transition: background 0.45s var(--ease), box-shadow 0.45s var(--ease);
-}
-
-.navbar.scrolled {
-  background: var(--maroon-deep);
-  box-shadow: 0 2px 48px rgba(0, 0, 0, 0.35);
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(31, 8, 8, 0.88) 0%,
+      rgba(61, 21, 21, 0.68) 45%,
+      rgba(20, 5, 5, 0.80) 100%
+    ),
+    url('assets/images/DSC_7910_lowres.JPG');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .nav-container {
@@ -75,8 +78,14 @@ address { font-style: normal; }
   justify-content: space-between;
 }
 
+.logo {
+  display: block;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
 .logo img {
-  height: 68px;
+  height: 200px;
   width: auto;
   transition: opacity 0.3s;
   filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
@@ -866,7 +875,7 @@ address { font-style: normal; }
 }
 
 .footer-logo {
-  height: 56px;
+  height: 168px;
   width: auto;
   filter: brightness(0) invert(1);
   opacity: 0.88;
